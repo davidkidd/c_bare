@@ -1,4 +1,7 @@
-TARGET = bin/final
+# Name of the final executable
+TARGET = bin/bare
+
+# Source and object folders
 SRC = $(wildcard src/*.c)
 OBJ = $(patsubst src/%.c, obj/%.o, $(SRC))
 
@@ -9,6 +12,9 @@ INCLUDE_DIR = include
 CFLAGS = -I$(INCLUDE_DIR)
 
 default: $(TARGET)
+
+run: clean default
+	./$(TARGET)
 
 clean:
 	rm -rf obj/*.o
